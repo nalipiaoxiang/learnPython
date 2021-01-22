@@ -1,0 +1,3 @@
+# 测试
+print(id(1))
+print(id(1))
