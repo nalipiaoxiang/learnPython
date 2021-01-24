@@ -51,7 +51,70 @@ print('hello' in d)
 print(d['name'])
 
 # get(key[,default]) ,通过该方法来获取字典中的值
-# 没有时不会报错
+# 获取的键没有时不会报错
 print(d.get('name'))
 print(d.get('hello'))
+# 获取不到返回默认值
+print(d.get('hello','默认值'))
 
+# 修改字典
+# d[key] = value
+d['name'] = '老熏'
+# 没有就加上
+d['address'] = '花果山'
+print(d)
+
+# setdefault(key[,default])
+#   如果key存在于字典中,则返回key值,不会对字典做任何操作
+#   如果key不存在,则向字典中添加这个key,并设置value
+print(d.setdefault('name', '猪八戒'))
+print(d.setdefault('hello', '猪八戒'))
+print(d)
+
+# update([other])
+# 将其他的字典中的key-value添加到当前字典中.
+# 如果有重复的key则后边的会替换到当前的.
+d = {'a':1,'b':2,'c':3}
+d2 = {'d':4,'e':5,'f':6,'a':7}
+d.update(d2)
+print(d)
+
+# 删除,可以使用del来删除字典中的key-value.
+del d['a']
+print(d)
+
+# popitem() 删除空字典会报错
+# 随机删除字典中的一个键值对,一般都会删除最后一个键值对.
+# 返回的是一个元组。元素中有两个元素,第1个元素是删除的key,第2个删除的是vlue.
+print(d.popitem())
+print(d)
+
+# pop(key[,default])
+# 根据key删除字典中的key-value.
+# 它会将删除的值返回
+# 删除不存在的key,会抛出异常
+print(d.pop('d'))
+print(d.pop('z','删除不存在的key不会报错,返回这个默认值'))
+print(d)
+
+# clear() 清空字典
+# copy()
+# 该方法用于对字典进行浅复制(如果字典的值还是字典则失效)
+d = {'a':1,'b':2,'c':3}
+# 两个变量指向一个对象不属于复制
+d2 = d
+print('d =' ,d,id(d))
+print('d2 =' ,d2,id(d2))
+
+d2 = d.copy()
+print('d =' ,d,id(d))
+print('d2 =' ,d2,id(d2))
+
+# 浅复制中的可变对象无法真正复制
+d = {'a':{'name':'熏悟空'},'b':2,'c':3}
+d2 = d.copy()
+print('d =' ,d,id(d))
+print('d2 =' ,d2,id(d2))
+d2['a']['name'] = '猪悟净'
+print('d =' ,d,id(d),id(d['a']))
+print('d2 =' ,d2,id(d2),id(d2['a']))
