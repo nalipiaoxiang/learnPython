@@ -53,3 +53,25 @@ fn3(1,2,3,4,5)
 def two_xing(**a):
     print('a=',a,type(a))
 two_xing(a=2,b=3,c=1)
+
+# 参数的解包
+t = (10,20,30)
+# 传递参数时,也可以在序列类型的参数前添加星号,这样会将序列中的元素以此传递
+# 这里要求序列中的个数必须和形参的个数一致
+fn1(*t)
+
+# 字典
+# 通过两个*来对字典进行解包
+d = {'a':200,'b':200,'c':300}
+fn1(**d)
+
+print('*'*60)
+
+def sum(*nums):
+    result = 0
+    for n in nums:
+        result += n
+    print(type(nums))
+    return result
+
+print(sum(1, 2, 3))
