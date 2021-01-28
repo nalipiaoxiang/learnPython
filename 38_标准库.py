@@ -39,3 +39,30 @@ pprint.pprint(os.environ['path'])
 # os.system() 可以执行操作系统的命令
 os.system('dir')
 # os.system('notepad')
+
+# 当前补录的文件
+# 可以指定目录 参数
+pprint.pprint(os.listdir())
+pprint.pprint(os.listdir('C:/'))
+
+# os.getcwd() 当前目录
+print(os.getcwd())
+
+# 切换目录 cd
+os.chdir('..')
+print(os.getcwd())
+
+# 创建目录
+# os.mkdir('aaa')
+pprint.pprint(os.listdir())
+
+#删除目录
+# os.rmdir('aaa')
+
+# open('aa.txt','w')
+
+#删除文件
+# os.remove('aa.txt')
+
+#重命名 也可以剪切
+# os.rename('旧名字','新名字')
